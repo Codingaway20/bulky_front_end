@@ -20,7 +20,7 @@ class _NavBarState extends State<NavBar> {
   @override
   Widget build(BuildContext context) {
     return ScreenTypeLayout.builder(
-      desktop: (context) => Container(
+      desktop: (BuildContext ctx) => Container(
         color: AppConstants.AppPrimaryColor,
         width: AppConstants.screenWidth,
         height: AppConstants.screenHeight! / 10,
