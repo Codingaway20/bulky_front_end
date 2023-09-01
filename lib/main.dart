@@ -1,4 +1,5 @@
 import 'package:bulky_front_end/Bulky.Controllers/HomeController.dart';
+import 'package:bulky_front_end/Bulky.Views/Category/CategoryIndex.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'Bulky.Views/home.dart';
@@ -22,7 +23,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home:  Home(),
+      home: Home(),
     );
   }
 }

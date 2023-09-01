@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -14,6 +16,7 @@ class AppFont extends StatelessWidget {
     return Text(
       text ?? "",
       style: GoogleFonts.rubik(
+        fontFeatures: [const FontFeature.proportionalFigures()],
         color: fontColor ?? Colors.black,
         fontSize: fontSize ?? 10,
         fontWeight: isBold == null ? FontWeight.normal : FontWeight.bold,
