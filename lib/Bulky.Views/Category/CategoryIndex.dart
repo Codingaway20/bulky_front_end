@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:bulky_front_end/Bulky,Widgets/AppFonts.dart';
+import 'package:bulky_front_end/Bulky.Controllers/CategoryController.dart';
 import 'package:bulky_front_end/Bulky.Controllers/HomeController.dart';
 import 'package:bulky_front_end/Bulky.Models/Category.dart';
 import 'package:bulky_front_end/Bulky.Services/CategoryServices.dart';
@@ -18,28 +19,7 @@ class CategoryIndex extends StatefulWidget {
 }
 
 class _CategoryIndexState extends State<CategoryIndex> {
-  final HomeController _homeController = Get.find();
-
-  //where all the students will be filled
-  List<Category> categories = [];
-
-  //Method to get the students list from ther API
-  Future getCategory() async {
-    var response = await CategoryServices.fetchCategory();
-    Iterable list = json.decode(response.body);
-    List<Category> categoryList = [];
-    categoryList = list.map((model) => Category.fromObject(model)).toList();
-    //Now update the list that the user see
-    setState(() {
-      categories = categoryList;
-    });
-  }
-
-  @override
-  void initState() {
-    getCategory();
-    super.initState();
-  }
+  final CategoryController _categoryController = Get.find();
 
   @override
   Widget build(BuildContext context) {
@@ -129,22 +109,12 @@ class _CategoryIndexState extends State<CategoryIndex> {
                 ],
               ),
               //=======================
-              Card(
-                color: Colors.white12,
-                elevation: 2,
-                child: ListTile(
-                  title: ListTile(
-                    title: Text(
-                      'Id: ${categories[0].Id}',
-                    ),
-                    leading: Text("Name : ${categories[0].Name}"),
-                    subtitle: Text(
-                      'Displaye orderr: ${categories[0].DisplayOrder}',
-                    ),
-                    onTap: null,
-                  ),
-                ),
-              ),
+              Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: _categoryController.getAllCategoriesViews().isEmpty
+                    ? [const CircularProgressIndicator()]
+                    : _categoryController.getAllCategoriesViews(),
+              )
             ],
           ),
         ),

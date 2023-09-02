@@ -1,3 +1,4 @@
+import 'package:bulky_front_end/Bulky.Controllers/CategoryController.dart';
 import 'package:bulky_front_end/Bulky.Controllers/HomeController.dart';
 import 'package:bulky_front_end/Bulky.Views/Category/CategoryIndex.dart';
 import 'package:flutter/material.dart';
@@ -16,6 +17,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     //putting home controller
     Get.put(HomeController());
+    Get.put(CategoryController());
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
