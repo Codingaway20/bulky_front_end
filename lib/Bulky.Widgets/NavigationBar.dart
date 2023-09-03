@@ -1,6 +1,6 @@
 import 'package:bulky_front_end/Bulky.Controllers/HomeController.dart';
 import 'package:bulky_front_end/Bulky.Utilities/AppConstants.dart';
-import 'package:bulky_front_end/Bulky,Widgets/AppFonts.dart';
+import 'package:bulky_front_end/Bulky.Widgets/AppFonts.dart';
 import 'package:bulky_front_end/Bulky.Views/Category/CategoryIndex.dart';
 import 'package:bulky_front_end/Bulky.Views/home.dart';
 import 'package:flutter/material.dart';

@@ -6,4 +6,6 @@ class AppConstants {
   static double? screenHeight;
 
   static Color AppPrimaryColor = Colors.deepPurple;
+
+  static double screenTtileSize = AppConstants.screenWidth! / 25;
 }

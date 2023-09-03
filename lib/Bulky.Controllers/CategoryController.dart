@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:bulky_front_end/Bulky,Widgets/CategoryView.dart';
+import 'package:bulky_front_end/Bulky.Widgets/Category/CategoryView.dart';
 import 'package:bulky_front_end/Bulky.Models/Category.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -10,6 +10,17 @@ import '../Bulky.Services/CategoryServices.dart';
 class CategoryController extends GetxController {
   List<Category> caregoriesFromDb = [];
 
+  //this method will call add category service to add new category
+  Future<bool> addNewCategory(Category? newCategory) async {
+    if (newCategory == null) {
+      return false;
+    }
+    //call add category service
+    bool addCategoryResult = await CategoryServices.addCategory(newCategory);
+    return addCategoryResult;
+  }
+
+  //this method populate the categoriesfromDB list
   void getAllCategories() async {
     var response = await CategoryServices.fetchCategory();
     Iterable list = json.decode(response.body);
@@ -19,6 +30,7 @@ class CategoryController extends GetxController {
     caregoriesFromDb = categoryList;
   }
 
+  //this method will populate the a list of containers which contains the categories info
   List<Container> getAllCategoriesViews() {
     getAllCategories();
 

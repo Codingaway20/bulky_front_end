@@ -1,4 +1,4 @@
-import 'package:bulky_front_end/Bulky,Widgets/AppFonts.dart';
+import 'package:bulky_front_end/Bulky.Widgets/AppFonts.dart';
 import 'package:bulky_front_end/Bulky.Utilities/AppConstants.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_builder/responsive_builder.dart';

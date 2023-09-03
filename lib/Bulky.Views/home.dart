@@ -1,7 +1,7 @@
 import 'package:bulky_front_end/Bulky.Controllers/HomeController.dart';
 import 'package:bulky_front_end/Bulky.Utilities/AppConstants.dart';
-import 'package:bulky_front_end/Bulky,Widgets/NavigationBar.dart';
-import 'package:bulky_front_end/Bulky,Widgets/ProductView.dart';
+import 'package:bulky_front_end/Bulky.Widgets/NavigationBar.dart';
+import 'package:bulky_front_end/Bulky.Widgets/Product/ProductView.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

@@ -1,8 +1,8 @@
 import 'dart:ui';
-
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+// ignore: must_be_immutable
 class AppFont extends StatelessWidget {
   AppFont({super.key, this.text, this.fontSize, this.fontColor, this.isBold});
 

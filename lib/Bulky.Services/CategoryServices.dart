@@ -30,10 +30,10 @@ class CategoryServices {
   };
 
   //Add Student
-  static Future<bool> addCategory(Category std) async {
+  static Future<bool> addCategory(Category category) async {
     try {
       //converting to map in flutter
-      var myStudentAsMap = std.toMap();
+      var myStudentAsMap = category.toMap();
       //converting to Json for the API
       var myStudentAsJson = jsonEncode(myStudentAsMap);
       var response = await http.post(

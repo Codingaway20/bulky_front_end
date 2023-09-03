@@ -1,15 +1,10 @@
-import 'dart:convert';
-
-import 'package:bulky_front_end/Bulky,Widgets/AppFonts.dart';
 import 'package:bulky_front_end/Bulky.Controllers/CategoryController.dart';
-import 'package:bulky_front_end/Bulky.Controllers/HomeController.dart';
-import 'package:bulky_front_end/Bulky.Models/Category.dart';
-import 'package:bulky_front_end/Bulky.Services/CategoryServices.dart';
+import 'package:bulky_front_end/Bulky.Utilities/AppConstants.dart';
+import 'package:bulky_front_end/Bulky.Views/Category/CategoryCreate.dart';
+import 'package:bulky_front_end/Bulky.Widgets/AppFonts.dart';
+import 'package:bulky_front_end/Bulky.Widgets/NavigationBar.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
-import '../../Bulky,Widgets/NavigationBar.dart';
-import '../../Bulky.Utilities/AppConstants.dart';
 
 class CategoryIndex extends StatefulWidget {
   const CategoryIndex({super.key});
@@ -20,6 +15,18 @@ class CategoryIndex extends StatefulWidget {
 
 class _CategoryIndexState extends State<CategoryIndex> {
   final CategoryController _categoryController = Get.find();
+
+  List<Container> allContainers = [];
+  bool isLoaded = false;
+
+  @override
+  void initState() {
+    allContainers = _categoryController.getAllCategoriesViews();
+    setState(() {
+      isLoaded = true;
+    });
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -41,7 +48,7 @@ class _CategoryIndexState extends State<CategoryIndex> {
                     text: "Category List",
                     fontColor: AppConstants.AppPrimaryColor,
                     isBold: true,
-                    fontSize: AppConstants.screenWidth! / 25,
+                    fontSize: AppConstants.screenTtileSize,
                   ),
                   SizedBox(
                     width: AppConstants.screenWidth! / 20,
@@ -111,9 +118,7 @@ class _CategoryIndexState extends State<CategoryIndex> {
               //=======================
               Column(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: _categoryController.getAllCategoriesViews().isEmpty
-                    ? [const CircularProgressIndicator()]
-                    : _categoryController.getAllCategoriesViews(),
+                children: allContainers,
               )
             ],
           ),
@@ -124,7 +129,12 @@ class _CategoryIndexState extends State<CategoryIndex> {
 
   InkWell createCategoryButton() {
     return InkWell(
-      onTap: () {},
+      onTap: () {
+        Get.to(
+          () => CategoryCreate(),
+          transition: Transition.fade,
+        );
+      },
       child: Container(
         color: AppConstants.AppPrimaryColor,
         child: Padding(
