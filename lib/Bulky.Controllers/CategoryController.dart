@@ -1,5 +1,4 @@
 import 'dart:convert';
-
 import 'package:bulky_front_end/Bulky.Widgets/Category/CategoryView.dart';
 import 'package:bulky_front_end/Bulky.Models/Category.dart';
 import 'package:flutter/material.dart';
@@ -8,7 +7,11 @@ import 'package:get/get.dart';
 import '../Bulky.Services/CategoryServices.dart';
 
 class CategoryController extends GetxController {
+  //for the object
   List<Category> caregoriesFromDb = [];
+
+
+  var currentEditedCategory = Category(Id: -1, Name: "", DisplayOrder: -1).obs;
 
   Future<bool> deleteCategory(int id) async {
     bool deleteCategoryResult = await CategoryServices.deleteCategory(id);
@@ -26,7 +29,7 @@ class CategoryController extends GetxController {
   }
 
   //this method populate the categoriesfromDB list
-  void getAllCategories() async {
+  Future<void> getAllCategories() async {
     var response = await CategoryServices.fetchCategory();
     Iterable list = json.decode(response.body);
     List<Category> categoryList = [];
@@ -36,9 +39,8 @@ class CategoryController extends GetxController {
   }
 
   //this method will populate the a list of containers which contains the categories info
-  List<Container> getAllCategoriesViews() {
-    getAllCategories();
-
+  List<Container>  getAllCategoriesViews() {
+    //for the widget
     List<Container> Categories = [];
     for (var element in caregoriesFromDb) {
       Categories.add(

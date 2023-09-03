@@ -16,16 +16,9 @@ class CategoryIndex extends StatefulWidget {
 class _CategoryIndexState extends State<CategoryIndex> {
   final CategoryController _categoryController = Get.find();
 
-  List<Container> allContainers = [];
-  bool isLoaded = false;
-
-  @override
-  void initState() {
-    allContainers = _categoryController.getAllCategoriesViews();
-    setState(() {
-      isLoaded = true;
-    });
-    super.initState();
+  List<Container> getAllCategoreis() {
+    List<Container> categoreis = _categoryController.getAllCategoriesViews();
+    return categoreis;
   }
 
   @override
@@ -117,9 +110,9 @@ class _CategoryIndexState extends State<CategoryIndex> {
               ),
               //=======================
               Column(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: allContainers,
-              )
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: getAllCategoreis(),
+                ),
             ],
           ),
         ),

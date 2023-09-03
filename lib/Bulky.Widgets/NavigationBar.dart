@@ -1,3 +1,4 @@
+import 'package:bulky_front_end/Bulky.Controllers/CategoryController.dart';
 import 'package:bulky_front_end/Bulky.Controllers/HomeController.dart';
 import 'package:bulky_front_end/Bulky.Utilities/AppConstants.dart';
 import 'package:bulky_front_end/Bulky.Widgets/AppFonts.dart';
@@ -16,6 +17,7 @@ class NavBar extends StatefulWidget {
 
 class _NavBarState extends State<NavBar> {
   HomeController _homeController = Get.find();
+  CategoryController _categoryController = Get.find();
 
   @override
   Widget build(BuildContext context) {
@@ -81,7 +83,9 @@ class _NavBarState extends State<NavBar> {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: TextButton(
-        onPressed: () {
+        onPressed: () async {
+          //Populate categories
+          await _categoryController.getAllCategories();
           //Go to Category Index view
           Get.off(
             () => CategoryIndex(),
