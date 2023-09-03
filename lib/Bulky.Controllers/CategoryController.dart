@@ -10,6 +10,11 @@ import '../Bulky.Services/CategoryServices.dart';
 class CategoryController extends GetxController {
   List<Category> caregoriesFromDb = [];
 
+  Future<bool> deleteCategory(int id) async {
+    bool deleteCategoryResult = await CategoryServices.deleteCategory(id);
+    return deleteCategoryResult;
+  }
+
   //this method will call add category service to add new category
   Future<bool> addNewCategory(Category? newCategory) async {
     if (newCategory == null) {
@@ -37,7 +42,12 @@ class CategoryController extends GetxController {
     List<Container> Categories = [];
     for (var element in caregoriesFromDb) {
       Categories.add(
-          CategoryView(element.Name, element.DisplayOrder.toString()));
+        CategoryView(
+          element.Name,
+          element.DisplayOrder.toString(),
+          element.Id,
+        ),
+      );
     }
     return Categories;
   }
