@@ -10,7 +10,6 @@ class CategoryController extends GetxController {
   //for the object
   List<Category> caregoriesFromDb = [];
 
-
   var currentEditedCategory = Category(Id: -1, Name: "", DisplayOrder: -1).obs;
 
   Future<bool> deleteCategory(int id) async {
@@ -38,8 +37,11 @@ class CategoryController extends GetxController {
     caregoriesFromDb = categoryList;
   }
 
+
+
+  
   //this method will populate the a list of containers which contains the categories info
-  List<Container>  getAllCategoriesViews() {
+  List<Container> getAllCategoriesViews() {
     //for the widget
     List<Container> Categories = [];
     for (var element in caregoriesFromDb) {

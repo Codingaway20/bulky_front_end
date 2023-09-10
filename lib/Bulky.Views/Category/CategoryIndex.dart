@@ -124,7 +124,7 @@ class _CategoryIndexState extends State<CategoryIndex> {
     return InkWell(
       onTap: () {
         Get.to(
-          () => CategoryCreate(),
+          CategoryCreate(),
           transition: Transition.fade,
         );
       },

@@ -1,6 +1,7 @@
 import 'package:bulky_front_end/Bulky.Controllers/CategoryController.dart';
 import 'package:bulky_front_end/Bulky.Controllers/HomeController.dart';
 import 'package:bulky_front_end/Bulky.Utilities/AppConstants.dart';
+import 'package:bulky_front_end/Bulky.Views/Product/ProductIndex.dart';
 import 'package:bulky_front_end/Bulky.Widgets/AppFonts.dart';
 import 'package:bulky_front_end/Bulky.Views/Category/CategoryIndex.dart';
 import 'package:bulky_front_end/Bulky.Views/home.dart';
@@ -39,6 +40,7 @@ class _NavBarState extends State<NavBar> {
               color: Colors.black,
             ),
             categoryButton(),
+            productButton(),
           ],
         ),
       ),
@@ -96,6 +98,29 @@ class _NavBarState extends State<NavBar> {
         child: AppFont(
           fontColor: Colors.white38,
           text: "Category",
+          fontSize: 18,
+        ),
+      ),
+    );
+  }
+
+  Padding productButton() {
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: TextButton(
+        onPressed: () async {
+          //Populate categories
+          //await _categoryController.getAllCategories();
+          //Go to Category Index view
+          Get.off(
+            () => ProductIndex(),
+            transition: Transition.rightToLeftWithFade,
+            duration: const Duration(milliseconds: 800),
+          );
+        },
+        child: AppFont(
+          fontColor: Colors.white38,
+          text: "Product",
           fontSize: 18,
         ),
       ),

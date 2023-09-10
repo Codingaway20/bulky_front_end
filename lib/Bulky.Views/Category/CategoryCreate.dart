@@ -1,6 +1,7 @@
 import 'package:bulky_front_end/Bulky.Controllers/CategoryController.dart';
 import 'package:bulky_front_end/Bulky.Models/Category.dart';
 import 'package:bulky_front_end/Bulky.Utilities/AppConstants.dart';
+import 'package:bulky_front_end/Bulky.Views/Category/CategoryIndex.dart';
 import 'package:bulky_front_end/Bulky.Widgets/AppFonts.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -123,6 +124,10 @@ class _CategoryCreateState extends State<CategoryCreate> {
             backgroundColor: Colors.green,
             duration: Duration(seconds: 2),
           ));
+          Get.off(
+            ()=> CategoryIndex(),
+            transition: Transition.fade,
+          );
           return;
         } else {
           Get.showSnackbar(const GetSnackBar(
