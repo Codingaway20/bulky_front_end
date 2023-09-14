@@ -52,8 +52,6 @@ class ProductController extends GetxController {
       List<Product> productList = [];
       productList = list.map((model) => Product.fromObject(model)).toList();
 
-  
-
       //Now update the list that the user see
       productsFromDb = productList;
       print(productsFromDb.length);
@@ -68,25 +66,102 @@ class ProductController extends GetxController {
       allProducts.add(
         DataRow(
           cells: <DataCell>[
-            DataCell(AppFont(
-              text: product.Title,
+            DataCell(
+                Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: AppFont(
+                text: product.Title,
+                fontSize: 15,
+              ),
             )),
             DataCell(AppFont(
               text: product.Description,
+              fontSize: 15,
             )),
             DataCell(AppFont(
               text: product.ISBN,
+              fontSize: 15,
             )),
             DataCell(AppFont(
               text: product.Author,
+              fontSize: 15,
             )),
-            DataCell(AppFont(
-              text: product.ListPrice.toString(),
-            )),
+            DataCell(
+              AppFont(
+                text: product.ListPrice.toString(),
+                fontSize: 15,
+              ),
+            ),
+            _editButton(),
+            _deleteButton(),
           ],
         ),
       );
     }
     return allProducts;
   }
+
+  DataCell _deleteButton() {
+    return DataCell(
+      Container(
+        decoration: BoxDecoration(
+          color: Colors.red,
+          borderRadius: BorderRadius.circular(10),
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            Padding(
+              padding:
+                  const EdgeInsets.symmetric(horizontal: 15.0, vertical: 10),
+              child: AppFont(
+                text: "Delete",
+                fontSize: 15,
+                fontColor: Colors.white,
+              ),
+            ),
+            const Icon(
+              Icons.delete,
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  DataCell _editButton() {
+    return DataCell(
+      Container(
+        decoration: BoxDecoration(
+          color: Colors.green,
+          borderRadius: BorderRadius.circular(10),
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            Padding(
+              padding:
+                  const EdgeInsets.symmetric(horizontal: 15.0, vertical: 10),
+              child: AppFont(
+                text: "Edit",
+                fontSize: 15,
+                fontColor: Colors.white,
+              ),
+            ),
+            const Icon(
+              Icons.edit,
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+
+
+
+
+
+  
+
 }

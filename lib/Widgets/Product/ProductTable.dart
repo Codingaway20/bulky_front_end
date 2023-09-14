@@ -8,16 +8,19 @@ class ProductTable extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print("All products insider table class \n $allProducts");
     return DataTable(
+      dividerThickness: 2,
+      showBottomBorder: true,
       columnSpacing: 20,
-      decoration: BoxDecoration(color: AppConstants.AppPrimaryColor),
+      decoration: BoxDecoration(
+          color: Colors.grey,
+          border: Border.all(color: AppConstants.AppPrimaryColor)),
       columns: const <DataColumn>[
         DataColumn(
           label: Expanded(
             child: Text(
-              'Ttile',
-              style: TextStyle(fontStyle: FontStyle.italic),
+              'Title',
+              style: TextStyle(fontStyle: FontStyle.italic,color: Colors.purple,fontSize: 20),
             ),
           ),
         ),
@@ -25,7 +28,7 @@ class ProductTable extends StatelessWidget {
           label: Expanded(
             child: Text(
               'Description',
-              style: TextStyle(fontStyle: FontStyle.italic),
+              style: TextStyle(fontStyle: FontStyle.italic,color: Colors.purple,fontSize: 20),
             ),
           ),
         ),
@@ -33,7 +36,7 @@ class ProductTable extends StatelessWidget {
           label: Expanded(
             child: Text(
               'ISBN',
-              style: TextStyle(fontStyle: FontStyle.italic),
+              style: TextStyle(fontStyle: FontStyle.italic,color: Colors.purple,fontSize: 20),
             ),
           ),
         ),
@@ -41,7 +44,7 @@ class ProductTable extends StatelessWidget {
           label: Expanded(
             child: Text(
               'Author',
-              style: TextStyle(fontStyle: FontStyle.italic),
+              style: TextStyle(fontStyle: FontStyle.italic,color: Colors.purple,fontSize: 20),
             ),
           ),
         ),
@@ -49,7 +52,23 @@ class ProductTable extends StatelessWidget {
           label: Expanded(
             child: Text(
               'List Price',
-              style: TextStyle(fontStyle: FontStyle.italic),
+              style: TextStyle(fontStyle: FontStyle.italic,color: Colors.purple,fontSize: 20),
+            ),
+          ),
+        ),
+        DataColumn(
+          label: Expanded(
+            child: Text(
+              '     ',
+           
+            ),
+          ),
+        ),
+        DataColumn(
+          label: Expanded(
+            child: Text(
+              '     ',
+           
             ),
           ),
         ),

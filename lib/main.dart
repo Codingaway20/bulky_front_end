@@ -1,10 +1,7 @@
-import 'package:bulky_front_end/Controllers/CategoryController.dart';
-import 'package:bulky_front_end/Controllers/HomeController.dart';
+
 import 'package:bulky_front_end/Services/DependencyInjection.dart';
-import 'package:bulky_front_end/Views/Category/CategoryIndex.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
 import 'Views/home.dart';
 
 void main() async {
