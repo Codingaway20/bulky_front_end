@@ -9,6 +9,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 
+import '../Bulky.Controllers/ProductController.dart';
+
 class NavBar extends StatefulWidget {
   NavBar({super.key});
 
@@ -19,6 +21,7 @@ class NavBar extends StatefulWidget {
 class _NavBarState extends State<NavBar> {
   HomeController _homeController = Get.find();
   CategoryController _categoryController = Get.find();
+  final ProductController _productControoler = Get.find();
 
   @override
   Widget build(BuildContext context) {
@@ -109,9 +112,7 @@ class _NavBarState extends State<NavBar> {
       padding: const EdgeInsets.all(8.0),
       child: TextButton(
         onPressed: () async {
-          //Populate categories
-          //await _categoryController.getAllCategories();
-          //Go to Category Index view
+          await _productControoler.getAllProducts();
           Get.off(
             () => ProductIndex(),
             transition: Transition.rightToLeftWithFade,

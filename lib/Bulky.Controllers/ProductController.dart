@@ -4,6 +4,7 @@ import 'package:bulky_front_end/Bulky.Models/Product.dart';
 import 'package:bulky_front_end/Bulky.Services/ProductServices.dart';
 import 'package:bulky_front_end/Bulky.Widgets/AppFonts.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
 
 class ProductController extends GetxController {
@@ -39,13 +40,26 @@ class ProductController extends GetxController {
 
   //this method populate the categoriesfromDB list
   Future<void> getAllProducts() async {
-    var response = await ProductServices.fetchProduct();
-    Iterable list = json.decode(response.body);
-    List<Product> productList = [];
-    productList = list.map((model) => Product.fromObject(model)).toList();
-    //Now update the list that the user see
-    productsFromDb = productList;
-    print(productList.length);
+    try {
+      var response = await ProductServices.fetchProduct();
+
+      Iterable list = json.decode(response.body);
+
+      for (var element in list) {
+        print("elemnt => ${element}");
+      }
+
+      List<Product> productList = [];
+      productList = list.map((model) => Product.fromObject(model)).toList();
+
+  
+
+      //Now update the list that the user see
+      productsFromDb = productList;
+      print(productsFromDb.length);
+    } catch (e) {
+      print("\n\n\nerror \n${e.toString()} ");
+    }
   }
 
   List<DataRow> getAllProductsInfo() {

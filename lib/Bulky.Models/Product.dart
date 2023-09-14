@@ -2,8 +2,6 @@
 import 'dart:convert';
 
 import 'package:bulky_front_end/Bulky.Models/Category.dart';
-import 'package:bulky_front_end/Bulky.Models/Category.dart';
-import 'package:bulky_front_end/Bulky.Models/Category.dart';
 
 class Product {
   int Id = -1;
@@ -34,40 +32,33 @@ class Product {
 
   Map<String, dynamic> toMap() {
     return <String, dynamic>{
-      'Id': Id,
-      'Title': Title,
-      'Description': Description,
-      'ISBN': ISBN,
-      'Author': Author,
-      'ListPrice': ListPrice,
-      'Price': Price,
-      'Price50': Price50,
-      'Price100': Price100,
-      'CategoryId': CategoryId,
+      'id': Id,
+      'title': Title,
+      'description': Description,
+      'isbn': ISBN,
+      'author': Author,
+      'listPrice': ListPrice,
+      'price': Price,
+      'price50': Price50,
+      'price100': Price100,
+      'categoryId': CategoryId,
       'category': category?.toMap(),
     };
   }
 
-  factory Product.fromObject(Map<String, dynamic> map) {
-    return Product(
-      Id: map['Id'] as int,
-      Title: map['Title'] as String,
-      Description: map['Description'] as String,
-      ISBN: map['ISBN'] as String,
-      Author: map['Author'] as String,
-      ListPrice: map['ListPrice'] as double,
-      Price: map['Price'] as double,
-      Price50: map['Price50'] as double,
-      Price100: map['Price100'] as double,
-      CategoryId: map['CategoryId'] as int,
-      category: map['category'] != null
-          ? Category.fromObject(map['category'] as Map<String, dynamic>)
-          : null,
-    );
+  Product.fromObject(dynamic map) {
+    this.Id = map['id'] ?? -1;
+    this.Title = map['title'] ?? "null";
+    this.Description = map['description'] ?? "null";
+    this.ISBN = map['isbn'] ?? "null";
+    this.Author = map['author'] ?? "null";
+    this.ListPrice = map['listPrice'] ?? 0.0;
+    this.Price = map['price'] ?? 0.0;
+    this.Price50 = map['price50'] ?? 0.0;
+    this.Price100 = map['price100'] ?? 0.0;
+    this.CategoryId = map['categoryId'] ?? -1;
+    this.category = map['category'] != null
+        ? Category.fromObject(map['category'] as Map<String, dynamic>)
+        : Category(Id: -1, Name: "", DisplayOrder: -1);
   }
-
-  String toJson() => json.encode(toMap());
-
-  factory Product.fromJson(String source) =>
-      Product.fromObject(json.decode(source) as Map<String, dynamic>);
 }

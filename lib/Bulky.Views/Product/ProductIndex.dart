@@ -14,12 +14,14 @@ class ProductIndex extends StatefulWidget {
 
 class _ProductIndexState extends State<ProductIndex> {
   final ProductController _productControoler = Get.find();
+
+  List<DataRow> allproducts = [];
+
   @override
   void initState() {
-    _productControoler.getAllProducts();
+    allproducts = _productControoler.getAllProductsInfo();
     super.initState();
   }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,7 +29,7 @@ class _ProductIndexState extends State<ProductIndex> {
         child: Container(
           child: Column(children: [
             NavBar(),
-            ProductTable(allProducts: _productControoler.getAllProductsInfo()),
+            ProductTable(allProducts: allproducts),
           ]),
         ),
       ),

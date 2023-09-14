@@ -8,7 +8,7 @@ class ProductTable extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-   
+    print("All products insider table class \n $allProducts");
     return DataTable(
       columnSpacing: 20,
       decoration: BoxDecoration(color: AppConstants.AppPrimaryColor),
