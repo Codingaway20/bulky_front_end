@@ -1,10 +1,10 @@
 import 'dart:convert';
-import 'package:bulky_front_end/Bulky.Widgets/Category/CategoryView.dart';
-import 'package:bulky_front_end/Bulky.Models/Category.dart';
+import 'package:bulky_front_end/Widgets/Category/CategoryView.dart';
+import 'package:bulky_front_end/Models/Category.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../Bulky.Services/CategoryServices.dart';
+import '../Services/CategoryServices.dart';
 
 class CategoryController extends GetxController {
   //for the object

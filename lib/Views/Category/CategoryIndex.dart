@@ -1,8 +1,8 @@
-import 'package:bulky_front_end/Bulky.Controllers/CategoryController.dart';
-import 'package:bulky_front_end/Bulky.Utilities/AppConstants.dart';
-import 'package:bulky_front_end/Bulky.Views/Category/CategoryCreate.dart';
-import 'package:bulky_front_end/Bulky.Widgets/AppFonts.dart';
-import 'package:bulky_front_end/Bulky.Widgets/NavigationBar.dart';
+import 'package:bulky_front_end/Controllers/CategoryController.dart';
+import 'package:bulky_front_end/Utilities/AppConstants.dart';
+import 'package:bulky_front_end/Views/Category/CategoryCreate.dart';
+import 'package:bulky_front_end/Widgets/AppFonts.dart';
+import 'package:bulky_front_end/Widgets/NavigationBar.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

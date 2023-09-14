@@ -1,15 +1,15 @@
-import 'package:bulky_front_end/Bulky.Controllers/CategoryController.dart';
-import 'package:bulky_front_end/Bulky.Controllers/HomeController.dart';
-import 'package:bulky_front_end/Bulky.Utilities/AppConstants.dart';
-import 'package:bulky_front_end/Bulky.Views/Product/ProductIndex.dart';
-import 'package:bulky_front_end/Bulky.Widgets/AppFonts.dart';
-import 'package:bulky_front_end/Bulky.Views/Category/CategoryIndex.dart';
-import 'package:bulky_front_end/Bulky.Views/home.dart';
+import 'package:bulky_front_end/Controllers/CategoryController.dart';
+import 'package:bulky_front_end/Controllers/HomeController.dart';
+import 'package:bulky_front_end/Utilities/AppConstants.dart';
+import 'package:bulky_front_end/Views/Product/ProductIndex.dart';
+import 'package:bulky_front_end/Widgets/AppFonts.dart';
+import 'package:bulky_front_end/Views/Category/CategoryIndex.dart';
+import 'package:bulky_front_end/Views/home.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 
-import '../Bulky.Controllers/ProductController.dart';
+import '../Controllers/ProductController.dart';
 
 class NavBar extends StatefulWidget {
   NavBar({super.key});

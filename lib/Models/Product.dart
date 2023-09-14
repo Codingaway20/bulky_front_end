@@ -1,7 +1,7 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'dart:convert';
 
-import 'package:bulky_front_end/Bulky.Models/Category.dart';
+import 'package:bulky_front_end/Models/Category.dart';
 
 class Product {
   int Id = -1;

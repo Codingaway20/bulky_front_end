@@ -1,4 +1,4 @@
-import 'package:bulky_front_end/Bulky.Utilities/AppConstants.dart';
+import 'package:bulky_front_end/Utilities/AppConstants.dart';
 import 'package:flutter/material.dart';
 
 class ProductTable extends StatelessWidget {

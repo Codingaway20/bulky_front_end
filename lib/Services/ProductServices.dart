@@ -1,19 +1,19 @@
 import 'dart:convert';
-import 'package:bulky_front_end/Bulky.Models/Category.dart';
+import 'package:bulky_front_end/Models/Category.dart';
+import 'package:bulky_front_end/Models/Product.dart';
 import 'package:http/http.dart' as http;
 
-class CategoryServices {
+class ProductServices {
   //the URL of the API
   //static String studentUrl = 'https://10.0.2.2:7036/api/student'; //FOR ENULATIOR
-  static String studentUrl =
-      'https://localhost:7013/api/category'; //FOR Web app
+  static String productUrl = 'https://localhost:7013/api/product'; //FOR Web app
   //static String studentUrl = 'https://192.168.2.211:8000/api/category';
   //static String studentUrl = 'https://jsonplaceholder.typicode.com/users';
 
   //Fetch all the students
-  static Future fetchCategory() async {
+  static Future fetchProduct() async {
     try {
-      return await http.get(Uri.parse(studentUrl), headers: {
+      return await http.get(Uri.parse(productUrl), headers: {
         "Access-Control-Allow-Origin": "*",
         'Content-Type': 'application/json',
         'Accept': '*/*',
@@ -30,18 +30,18 @@ class CategoryServices {
   };
 
   //Add Student
-  static Future<bool> addCategory(Category category) async {
+  static Future<bool> addProduct(Product product) async {
     try {
       //converting to map in flutter
-      var myStudentAsMap = category.toMap();
+      var ProductAsMap = product.toMap();
       //converting to Json for the API
-      var myStudentAsJson = jsonEncode(myStudentAsMap);
+      var myProductAsJson = jsonEncode(ProductAsMap);
       var response = await http.post(
         Uri.parse(
-          studentUrl,
+          productUrl,
         ),
         headers: header, //the header
-        body: myStudentAsJson, //the new student info
+        body: myProductAsJson, //the new student info
       );
 
       if (response.statusCode == 200) {
@@ -56,10 +56,10 @@ class CategoryServices {
   }
 
   //Delete Student
-  static Future<bool> deleteCategory(int id) async {
+  static Future<bool> deleteProduct(int id) async {
     var response = await http.delete(
       Uri.parse(
-          '$studentUrl/$id'), // bacause when You add the id , the backend will understand it is a delete not add or get
+          '$productUrl/$id'), // bacause when You add the id , the backend will understand it is a delete not add or get
       headers: header,
     );
 

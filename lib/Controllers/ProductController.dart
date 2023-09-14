@@ -1,8 +1,8 @@
 import 'dart:convert';
 
-import 'package:bulky_front_end/Bulky.Models/Product.dart';
-import 'package:bulky_front_end/Bulky.Services/ProductServices.dart';
-import 'package:bulky_front_end/Bulky.Widgets/AppFonts.dart';
+import 'package:bulky_front_end/Models/Product.dart';
+import 'package:bulky_front_end/Services/ProductServices.dart';
+import 'package:bulky_front_end/Widgets/AppFonts.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';

@@ -1,7 +1,7 @@
-import 'package:bulky_front_end/Bulky.Controllers/ProductController.dart';
-import 'package:bulky_front_end/Bulky.Models/Product.dart';
-import 'package:bulky_front_end/Bulky.Widgets/NavigationBar.dart';
-import 'package:bulky_front_end/Bulky.Widgets/Product/ProductTable.dart';
+import 'package:bulky_front_end/Controllers/ProductController.dart';
+import 'package:bulky_front_end/Models/Product.dart';
+import 'package:bulky_front_end/Widgets/NavigationBar.dart';
+import 'package:bulky_front_end/Widgets/Product/ProductTable.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

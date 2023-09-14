@@ -1,12 +1,12 @@
-import 'package:bulky_front_end/Bulky.Utilities/AppConstants.dart';
-import 'package:bulky_front_end/Bulky.Views/Category/CategoryIndex.dart';
+import 'package:bulky_front_end/Utilities/AppConstants.dart';
+import 'package:bulky_front_end/Views/Category/CategoryIndex.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../Bulky.Controllers/CategoryController.dart';
-import '../../Bulky.Models/Category.dart';
-import '../../Bulky.Widgets/AppFonts.dart';
-import '../../Bulky.Widgets/NavigationBar.dart';
+import '../../Controllers/CategoryController.dart';
+import '../../Models/Category.dart';
+import '../../Widgets/AppFonts.dart';
+import '../../Widgets/NavigationBar.dart';
 
 class CategoryEdit extends StatefulWidget {
   const CategoryEdit({super.key});
